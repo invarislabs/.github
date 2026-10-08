@@ -37,6 +37,21 @@ Gives each agent a self-certifying DID backed by an Ed25519 keypair. The agent s
 
 ---
 
+### Writing
+
+- **[What Does a Passing Agent Security Test Actually Prove?](https://arunima-chaudhuri.hashnode.dev/what-does-a-passing-agent-security-test-actually-prove)** (Oct 2026)  
+  Five ways an agent can pass a security test without resisting anything, drawn from AgentSec runs against seven frameworks, two memory stores and the Claude Code CLI.
+- **[Allowed Isn't Authorized: Testing What Your AI Agent Does With the Permissions It Already Has](https://arunima-chaudhuri.hashnode.dev/allowed-isn-t-authorized-testing-what-your-ai-agent-does-with-the-permissions-it-already-has)** (Oct 2026)  
+  A hands-on guide to AgentSec 0.7's authority checks: task scope, data flow, honest reporting, identity boundaries and multi-agent delegation.
+- **[AgentSec 101: How to Stop Your AI Agent From Going Rogue](https://arunima-chaudhuri.hashnode.dev/agentsec-101-how-to-stop-your-ai-agent-from-going-rogue-a-beginner-to-pro-guide)** (Sep 2026)  
+  A beginner-to-pro walkthrough: install, test the bundled practice agent, write a policy, then replay, compare, CI and the optional judge.
+- **[I Asked My Coding Agent for a Yes or No. It Made a Commit.](https://arunima-chaudhuri.hashnode.dev/i-asked-my-coding-agent-for-a-yes-or-no-it-made-a-commit)** (Sep 2026)  
+  The origin story behind AgentSec.
+
+More at [arunima-chaudhuri.hashnode.dev](https://arunima-chaudhuri.hashnode.dev).
+
+---
+
 ### Get involved
 
 We're looking for **design partners** and **contributors**. Useful places to start:
