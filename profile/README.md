@@ -2,13 +2,19 @@
 
 **Security infrastructure for autonomous AI agents.**
 
-AI agents read untrusted data, call tools, keep memory, hand work to other agents and take real actions. One poisoned document or tool response can make an agent leak secrets, call a tool it shouldn't, or do something that can't be undone. Invaris Labs builds open-source tools to **test** agents for that kind of behaviour and to give them **verifiable identity and limited authority**.
+AI agents read untrusted data, call tools, keep memory, hand work to other agents and take real actions. One poisoned document or tool response can make an agent leak secrets, call a tool it shouldn't, or do something that can't be undone. Invaris Labs builds open-source tools to **test** how agents behave under attack, **track** what every test run found, and give agents **verifiable identity and limited authority**.
 
 [Website](https://invaris-labs.pages.dev/) · [Writing](https://arunima-chaudhuri.hashnode.dev) · [X](https://x.com/InvarisLabs) · [LinkedIn](https://www.linkedin.com/company/invarislabs)
 
 ---
 
 ### Projects
+
+| Project | Answers | Repository |
+|---|---|---|
+| 🛡️ **AgentSec** | Does the agent behave safely? | [invaris-agentsec](https://github.com/invarislabs/invaris-agentsec) |
+| 📊 **AgentSec Dashboard** | What did each run find, and what changed? | [invaris-agentsec-dashboard](https://github.com/invarislabs/invaris-agentsec-dashboard) |
+| 🔑 **AgentAuth** | Who is the agent, and what may it do? | [agent-auth](https://github.com/invarislabs/agent-auth) |
 
 #### 🛡️ [AgentSec](https://github.com/invarislabs/invaris-agentsec): adversarial testing for AI agents
 
@@ -18,12 +24,28 @@ Runs stateful attack scenarios against complete agent workflows (LLMs, retrieval
 - **MCP scanning:** poisoned tool descriptions, tool shadowing and rug pulls
 - **Standards:** findings map to the OWASP Top 10 for Agentic Applications (ASI01–ASI10)
 - **CI-first:** CLI, pytest plugin and GitHub Action, with reports in terminal, JSON, HTML, Markdown and SARIF
-- **Local by default:** no traces leave your machine
+- **Local by default:** no traces leave your machine unless you choose to upload them
 
 ```bash
 pip install invaris-agentsec
 agentsec init   # scaffold an agentsec.yaml policy
 agentsec test   # run the suite
+```
+
+#### 📊 [AgentSec Dashboard](https://github.com/invarislabs/invaris-agentsec-dashboard): every AgentSec run in one place
+
+A hosted dashboard for AgentSec reports. Upload the `report.json` AgentSec writes from CI or your machine, and see every run of every agent together: findings with their evidence, full traces, history across runs, and what changed between any two runs.
+
+- **Upload from anywhere:** `agentsec upload` or the AgentSec GitHub Action, with per-project, upload-only tokens; branch, commit and CI-run link are recorded
+- **Honest verdicts:** a scenario whose attack never reached the agent is *inconclusive*, never counted as passed, and a finding is never counted as fixed if its scenario was inconclusive in the newer run
+- **Views:** scenario grid by attack category and OWASP ASI01–ASI10, findings with `agentsec replay` commands, trace timelines, attack-goal timelines, MCP scans, and baseline-vs-hardened comparison
+- **Same numbers everywhere:** results come from AgentSec's own code, so the hosted dashboard, the local `agentsec dashboard` and the CLI agree
+- **Built for hostile input:** report text is rendered as text only under a strict CSP, and invisible characters and look-alike tool names are made visible
+- **Free at launch and self-hostable:** Docker, or a free Render + Neon deploy
+
+```bash
+agentsec test --policy agentsec.yaml
+agentsec upload .agentsec/report.json --server https://<your-dashboard>
 ```
 
 #### 🔑 [AgentAuth](https://github.com/invarislabs/agent-auth): identity and delegated authority for AI agents
@@ -54,14 +76,15 @@ More at [arunima-chaudhuri.hashnode.dev](https://arunima-chaudhuri.hashnode.dev)
 
 ### Get involved
 
-We're looking for **design partners** and **contributors**. Useful places to start:
+All three projects are open source and under active development. We're looking for **design partners** and **contributors**. Good places to start:
 
 - adversarial test cases and attack packs
 - framework adapters
 - MCP security testing
+- dashboard features (see its [Not built yet](https://github.com/invarislabs/invaris-agentsec-dashboard#not-built-yet) list)
 - documentation
 
-Open an issue or PR on either repo, or reach out at **arunimachaudhuri2020@gmail.com**.
+Open an issue or PR on any repo, or reach out at **arunimachaudhuri2020@gmail.com**.
 
 ---
 
