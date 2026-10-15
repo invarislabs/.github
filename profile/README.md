@@ -4,7 +4,7 @@
 
 AI agents read untrusted data, call tools, keep memory, hand work to other agents and take real actions. One poisoned document or tool response can make an agent leak secrets, call a tool it shouldn't, or do something that can't be undone. Invaris Labs builds open-source tools to **test** how agents behave under attack, **track** what every test run found, and give agents **verifiable identity and limited authority**.
 
-[Website](https://invaris-labs.pages.dev/) · [Writing](https://arunima-chaudhuri.hashnode.dev) · [X](https://x.com/InvarisLabs) · [LinkedIn](https://www.linkedin.com/company/invarislabs)
+[Website](https://www.invarislabs.com/) · [Writing](https://arunima-chaudhuri.hashnode.dev) · [X](https://x.com/InvarisLabs) · [LinkedIn](https://www.linkedin.com/company/invarislabs)
 
 ---
 
